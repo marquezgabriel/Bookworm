@@ -32,16 +32,18 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 Text(book.title ?? "Unknown Title")
                                     .font(.headline)
+                                    .foregroundColor(book.rating == 1 ? .red : .primary)
                                 Text(book.author ?? "Unknown Author")
                                     .foregroundColor(.secondary)
                             }
                         }
                     }
+                    .opacity(book.rating == 1 ? 0.5 : 1)
                 }
                 // Swap to delete
                 .onDelete(perform: deleteBooks)
             }
-               .navigationTitle("Bookworm")
+               .navigationTitle("Bookworm 📘🐛")
                .toolbar {
                    //Edit button
                    ToolbarItem(placement: .navigationBarLeading) {
